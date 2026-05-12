@@ -13,6 +13,7 @@ namespace CPh = CPhysics;
 
 int main()
 {
+    std::cout << "Test Git Push" << std::endl;
     if (false)
     {
         CPh::newObject("Wall", true, true);
