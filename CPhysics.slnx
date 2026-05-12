@@ -4,4 +4,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="D:/Coding/C++/CPhysics/CPhysics/CPhysics.vcxproj" Id="a40b89ae-0021-4427-a03d-8975b0b129dc" />
+  <Project Path="Game/Game.vcxproj" Id="a938a004-a79d-4a9f-b4f1-95443e6b9fa4" />
 </Solution>

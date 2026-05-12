@@ -1,0 +1,34 @@
+{
+    "colliders": [
+        {
+            "imagePath": "D:/Coding/C++/CPhysics/Game/Test.png",
+            "key": "Background",
+            "rectangles": [
+                {
+                    "h": 55.0,
+                    "w": 200.0,
+                    "x": 405.0,
+                    "y": 21.0
+                },
+                {
+                    "h": 114.0,
+                    "w": 127.0,
+                    "x": 501.0,
+                    "y": 200.0
+                }
+            ]
+        },
+        {
+            "imagePath": "D:/Coding/C++/CPhysics/Game/Test.png",
+            "key": "Background",
+            "rectangles": [
+                {
+                    "h": 87.0,
+                    "w": 847.0,
+                    "x": 144.0,
+                    "y": -16.0
+                }
+            ]
+        }
+    ]
+}

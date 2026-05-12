@@ -1,0 +1,9 @@
+Game Concept
+	Simular to minecraft Skyblock
+
+	Game Stages
+		-You start on a small world with random reasoerces gernating and have to manually harvest them
+		-You are able to start automating the harvesting of resources and the crafting of items
+		-YOu can build a portal to a market world
+			- where you can buy and sell things on a general aucton to other player or buy and sel things to the games shop
+		-You can also build a portal to other player that allow yous worlds

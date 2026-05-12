@@ -15,12 +15,8 @@ namespace CPhysics
 		Vector2 Normalized() const
 		{
 			float len = length();
+			if (len == 0) return Vector2(0, 0);
 			return  Vector2(x/len , y/len);
-		}
-
-		Vector2 Perpendicular() const 
-		{
-			return Vector2(-y, x);
 		}
 
 #pragma region Opertors
@@ -71,15 +67,32 @@ namespace CPhysics
 
 #pragma region staticMathMethods
 
-		static float Dot(const Vector2& a, const Vector2& b)
+		static const float Dot(const Vector2& a, const Vector2& b)
 		{
 			return a.x * b.x + a.y * b.y;
 		}
 
-		static float Distance(const Vector2& a, const Vector2& b) 
+		static const float Distance(const Vector2& a, const Vector2& b) 
 		{
 			return (a - b).length();
 		}
+
+		static const Vector2 RotateAboutPoint(const Vector2& point, const Vector2& pivot, float angle)
+		{
+			angle = angle * 3.14159265f / 180.0f; 
+			float s = sin(angle);
+			float c = cos(angle);
+			Vector2 translated = point - pivot;
+			float xnew = translated.x * c - translated.y * s;
+			float ynew = translated.x * s + translated.y * c;
+			return Vector2(xnew, ynew) + pivot;
+		}
+
+		static const Vector2 Lerp(const Vector2& a, const Vector2& b, float t)
+		{
+			return a + (b - a) * t;
+		}
+
 
 
 
