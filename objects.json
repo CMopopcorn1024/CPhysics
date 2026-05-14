@@ -15,12 +15,12 @@
         {
             "key": "Rock",
             "properties": {
-                "height": 20,
+                "height": 1000,
                 "imageName": "Rock.png",
                 "isStatic": true,
-                "width": 20,
-                "x": 500,
-                "y": 500
+                "width": 1000,
+                "x": 1000,
+                "y": 1000
             }
         }
     ]

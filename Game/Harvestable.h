@@ -12,6 +12,7 @@ class Harvestable : public ImageObject
 public:
 	Harvestable(Item harvestItem, CPh::PhysicsObject* physicsObject, Texture2D texture, float scale, float rotation);
 	void draw() override;
+	CPh::PhysicsObject* getPhysicsObject() {return physicsObject;}
 private: 
 	Item item;
 	CPh::PhysicsObject* physicsObject;

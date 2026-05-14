@@ -50,10 +50,11 @@ int main()
 
     //Load test Rock Harvestable 
 
-    Texture2D texture  = LoadTexture("Rock.png");
+    Texture2D texture  = LoadTexture("Game/Rock.png");
+    
     Item rockItem("Rock", texture, 1,0);
     CPh::PhysicsObject rockPhysicsObject = CPh::loadObject("Rock");
-    Harvestable Rock(rockItem, &rockPhysicsObject,texture,10,0);
+    Harvestable Rock(rockItem, &rockPhysicsObject,texture,1,0);
 
 
     while (!WindowShouldClose()) 
@@ -84,9 +85,16 @@ int main()
        
         
 
-        player.draw();
-        Rock.draw();
-       
+        //player.draw();
+        //Rock.draw();
+        CPh::Rectangle* rect = Rock.getPhysicsObject()->getCollisionObject().getRect();
+        CPh::Vector2 pos = rect->getPosition();
+        CPh::Vector2 size= rect->getSize();
+        DrawRectangle(pos.x,pos.y,size.x,size.y,RED);
+        
+        CPh::Circle* cir = player.getPhysicsObject()->getCollisionObject().getCircle();
+        
+        DrawCircle(cir->position.x,cir->position.y,cir->radius,BLUE);
 
         EndMode2D();
 

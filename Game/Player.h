@@ -15,7 +15,7 @@ public:
 	void update(float dt);
 	
 	CPh::Vector2 getPosition() const { return physicsObject->getPosition(); }
-
+	CPh::PhysicsObject* getPhysicsObject() {return physicsObject;}
 private:
 	int speed;
 	CPh::PhysicsObject* physicsObject;
