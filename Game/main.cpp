@@ -15,11 +15,8 @@ namespace CPh = CPhysics;
 
 int main()
 {
-    std::cout << "text" << std::endl;
-    if (true)
+    if (false)
     {
-        std::cout << "tst" << std::endl;
-        std::abort();
         CPh::newObject("Rock", true, true);
         std::abort();
         return 0;
@@ -52,9 +49,10 @@ int main()
 
     //Load test Rock Harvestable 
 
-    //Texture2D texture  = LoadTexture("Rock.png");
-    //Item rockItem("Rock", texture, 1,0);
-    //Harvestable Rock(rockItem,/*PhysicsObject*/,texture,10,0);
+    Texture2D texture  = LoadTexture("Rock.png");
+    Item rockItem("Rock", texture, 1,0);
+    CPh::PhysicsObject rockPhysicsObject = CPh::loadObject("Rock");
+    Harvestable Rock(rockItem, &rockPhysicsObject,texture,10,0);
 
 
     while (!WindowShouldClose()) 
@@ -86,6 +84,7 @@ int main()
         
 
         player.draw();
+        Rock.draw();
        
 
         EndMode2D();

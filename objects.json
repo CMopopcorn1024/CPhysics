@@ -11,6 +11,17 @@
                 "x": 500,
                 "y": 500
             }
+        },
+        {
+            "key": "Rock",
+            "properties": {
+                "height": 20,
+                "imageName": "Rock.png",
+                "isStatic": true,
+                "width": 20,
+                "x": 1000,
+                "y": 1000
+            }
         }
     ]
 }
