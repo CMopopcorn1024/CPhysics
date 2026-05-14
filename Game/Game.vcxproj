@@ -129,6 +129,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Harvestable.cpp" />
+    <ClCompile Include="ImageObject.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -141,6 +144,9 @@
     <Text Include="Outline.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Harvestable.h" />
+    <ClInclude Include="ImageObject.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
