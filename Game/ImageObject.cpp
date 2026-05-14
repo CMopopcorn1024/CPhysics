@@ -6,5 +6,5 @@ ImageObject::ImageObject(Texture2D texture, float scale, float rotation) : textu
 
 void ImageObject::draw(int x, int y)
 {
-	DrawTextureEx(texture, Vector2( x,y ), rotation, scale, WHITE);
+	DrawTextureEx(texture, (Vector2){x,y}, rotation, scale, WHITE);
 }

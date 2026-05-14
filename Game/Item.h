@@ -1,5 +1,6 @@
 #pragma once
-#include <String>
+
+#include <string>
 #include "raylib.h"
 
 #include "ImageObject.h"

@@ -9,14 +9,19 @@
 #include "CollisionObject.h"
 #include "ObjectSave.h"
 
+#include "Harvestable.h"
+
 namespace CPh = CPhysics;
 
 int main()
 {
-    std::cout << "Test Git Push" << std::endl;
-    if (false)
+    std::cout << "text" << std::endl;
+    if (true)
     {
-        CPh::newObject("Wall", true, true);
+        std::cout << "tst" << std::endl;
+        std::abort();
+        CPh::newObject("Rock", true, true);
+        std::abort();
         return 0;
     }
     const int screenWidth = 800;
@@ -44,6 +49,12 @@ int main()
 
     // Main game loop
     float dt = 0;
+
+    //Load test Rock Harvestable 
+
+    //Texture2D texture  = LoadTexture("Rock.png");
+    //Item rockItem("Rock", texture, 1,0);
+    //Harvestable Rock(rockItem,/*PhysicsObject*/,texture,10,0);
 
 
     while (!WindowShouldClose()) 
