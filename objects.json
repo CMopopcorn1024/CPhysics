@@ -1,3 +1,16 @@
 {
-    "objects": []
+    "objects": [
+        {
+            "key": "Player",
+            "properties": {
+                "bounce": 0.8,
+                "drag": 8.0,
+                "imageName": "null",
+                "mass": 1.0,
+                "radius": 25,
+                "x": 500,
+                "y": 500
+            }
+        }
+    ]
 }

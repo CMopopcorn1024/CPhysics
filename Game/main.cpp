@@ -61,7 +61,7 @@ int main()
 			
 			CPh::Vector2 camTargetCPh = CPh::Vector2(camera.target.x, camera.target.y);
             camTargetCPh = CPh::Vector2::Lerp(camTargetCPh, player.getPosition(), 4.0f * dt);
-			camera.target = (Vector2){camTargetCPh.x, camTargetCPh.y};
+			camera.target = {camTargetCPh.x, camTargetCPh.y};
            
         // Draw
         BeginDrawing();
