@@ -4,9 +4,11 @@
 #include <fstream>
 #include <filesystem>
 #include <iostream>
+#include <iostream>
 
 #include "PhysicsObject.h"
 #include "CollisionObject.h"
+
 
 using json = nlohmann::json;
 
@@ -154,7 +156,11 @@ namespace CPhysics
 
             break;
         }
-
+        if (colObj == nullptr) 
+        {
+			std::cerr << "Object with key '" << name << "' not found or has invalid properties.\n";
+            std::abort();
+        }
         return PhysicsObject(props, colObj);
     }
 }
