@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build game",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                "src/*.cpp",
+                "-o",
+                "build/game",
+                "-I/opt/homebrew/include",
+                "-L/opt/homebrew/lib",
+                "-lraylib"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

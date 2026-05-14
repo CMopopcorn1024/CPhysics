@@ -15,6 +15,7 @@ namespace CPh = CPhysics;
 
 int main()
 {
+    std::cout <<"Test run" << std::endl;
     if (false)
     {
         CPh::newObject("Rock", true, true);

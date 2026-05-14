@@ -7,6 +7,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/game",
             "cwd": "${workspaceFolder}",
+            "preLaunchTask": "build game",
             "MIMode": "lldb",
             "externalConsole": false
         }
