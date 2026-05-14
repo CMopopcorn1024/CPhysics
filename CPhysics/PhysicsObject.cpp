@@ -3,7 +3,7 @@
 #include <iostream>
 namespace CPhysics
 {
-	PhysicsObject::PhysicsObject(PhysicsObjectProperties objProp, CollisionObject* colObj) : prop(objProp), colObj(colObj)
+	PhysicsObject::PhysicsObject(PhysicsObjectProperties objProp, std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : prop(objProp), CollisionObject(colRects,colCircles)
 	{
 		physicObjects.push_back(this);
 	}
@@ -11,34 +11,37 @@ namespace CPhysics
 	void PhysicsObject::update(float dt)
 	{
 		//Collision Implementation 
-
+		PhysicsObject* objA;
+		PhysicsObject* objB;
 		for (int i = 0; i < physicObjects.size(); i++)
 		{
-			if (physicObjects.at(i)->getProp().doCollision)
+			objA = physicObjects.at(i);
+			if (objA->prop.doCollision)
 			{
 				for (int j = i + 1; j < physicObjects.size(); j++)
 					{
-						if (physicObjects.at(i)->getProp().doCollision)
+						objB = physicObjects.at(j);
+						if (objB->prop.doCollision)
 						{
 
-							Collision collision = CollisionObject::checkCollision(physicObjects.at(i), physicObjects.at(j));
+							Collision collision = CollisionObject::checkCollision(objA,objB);
 							if (collision.collision)
 							{
 								//There is a collision so now I have to implement the bounce formula 676767667676767
 
-								Vector2 relVel = collision.objB->velocity - collision.objA->velocity;
+								Vector2 relVel = objB->velocity - objA->velocity;
 
 								float NormalVel = Vector2::Dot(relVel,collision.collisionNormal);
 					
 								if (NormalVel > 0) continue;
-								PhysicsObjectProperties& AProp = collision.objA->getProp();
-								PhysicsObjectProperties& BProp = collision.objB->getProp();
+								PhysicsObjectProperties& AProp = objA->prop;
+								PhysicsObjectProperties& BProp = objB->prop;
 
 								float AImpulse = (NormalVel * -(1+AProp.bounciness)) / (1 / AProp.mass + 1 / BProp.mass);
 								float BImpulse = (NormalVel * -(1+BProp.bounciness)) / (1 / AProp.mass + 1 / BProp.mass);
 
-								collision.objA->changeVelocity(collision.collisionNormal * -AImpulse / AProp.mass);
-								collision.objB->changeVelocity(collision.collisionNormal * BImpulse / BProp.mass);
+								objA->velocity += collision.collisionNormal * -AImpulse / AProp.mass;
+								objB->velocity += collision.collisionNormal *  BImpulse / BProp.mass;
 
 							}
 							
@@ -50,20 +53,19 @@ namespace CPhysics
 
 
 		//Tension Implementation
-		for (Tension* tension : TensionConnectors) 
+		/*for (Tension* tension : TensionConnectors) 
 		{
 			tension->ApplyTension(dt);
-		}
+		}*/ //depricated
 
 
 		//Drag Implementation
 		for (PhysicsObject* obj : physicObjects)
 		{
-			if (!obj->getProp().isStatic)
+			if (!obj->prop.isStatic)
 			{
-				PhysicsObjectProperties* prop = &obj->getProp();
 
-				Vector2 dragForce = obj->velocity * -prop->drag/prop->mass;
+				Vector2 dragForce = obj->velocity * -obj->prop.drag/obj->prop.mass;
 				obj->changeVelocity(dragForce * dt);
 			}
 		}
@@ -71,7 +73,7 @@ namespace CPhysics
 		//Update 
 		for (PhysicsObject* obj : physicObjects)
 		{
-			if (!obj->getProp().isStatic)
+			if (!obj->prop.isStatic)
 			{
 				obj->updatePosition(dt);
 			}
@@ -81,20 +83,12 @@ namespace CPhysics
 
 	void PhysicsObject::updatePosition(float dt)
 	{
-		colObj->ChangePosition(velocity * dt);
+		position += velocity * dt;
 	}
 
-	Vector2 PhysicsObject::getPosition() const
-	{
-		return colObj->getPosition();
-	}
 
-	Vector2 PhysicsObject::getSize() const
-	{
-		if (colObj->isRect()) return colObj->getRect()->getSize();
-		if (colObj->isCircle()) return Vector2(colObj->getCircle()->radius, colObj->getCircle()->radius);
-		return Vector2(0, 0);
-	}
+	Vector2 PhysicsObject::getPosition() const {return position;}
+	Vector2 PhysicsObject::getVelocity() const {return velocity;}
 
 }
 

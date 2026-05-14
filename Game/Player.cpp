@@ -7,7 +7,7 @@ Player::Player(CPh::PhysicsObject* physicsObject, float speed) : physicsObject(p
 void Player::draw()
 {
 	CPh::Vector2 pos = physicsObject->getPosition();
-	CPh::Vector2 size = physicsObject->getSize();
+	CPh::Vector2 size(20,20);
 	DrawCircle(pos.x, pos.y, size.x , BLUE);
 }
 

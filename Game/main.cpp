@@ -6,8 +6,6 @@
 
 #include "PhysicsObject.h"
 #include "DeltaTime.h"
-#include "CollisionObject.h"
-#include "ObjectSave.h"
 
 #include "Harvestable.h"
 
@@ -15,13 +13,7 @@ namespace CPh = CPhysics;
 
 int main()
 {
-    std::cout <<"Test run" << std::endl;
-    if (false)
-    {
-        CPh::newObject("Rock", true, true);
-        std::abort();
-        return 0;
-    }
+    
     const int screenWidth = 800;
     const int screenHeight = 600;
 
@@ -32,11 +24,17 @@ int main()
     CPh::DeltaTime deltaTime;
 
 
-    CPh::PhysicsObject playerPhysicsObject = CPh::loadObject("Player");
-    Player player(&playerPhysicsObject, 35.0f);
+    //New way to load object type combining Object.h and ColliderSave.h into one object using a graphical interfase to create the object
+    
+        /*Player player(&playerPhysicsObject, 35.0f);
 
-    CPh::Vector2 playerPos = player.getPosition();
-    //camera.target = Vector2(playerPos.x, playerPos.y);
+        Texture2D texture  = LoadTexture("Game/Rock.png");
+    
+        Item rockItem("Rock", texture, 1,0);
+        CPh::PhysicsObject rockPhysicsObject = CPh::loadObject("Rock");
+        
+        Harvestable Rock(rockItem, &rockPhysicsObject,texture,1,0);*/
+
     Camera2D camera = { 0 };
 
     camera.target = {0, 0};
@@ -50,18 +48,13 @@ int main()
 
     //Load test Rock Harvestable 
 
-    Texture2D texture  = LoadTexture("Game/Rock.png");
     
-    Item rockItem("Rock", texture, 1,0);
-    CPh::PhysicsObject rockPhysicsObject = CPh::loadObject("Rock");
-    Harvestable Rock(rockItem, &rockPhysicsObject,texture,1,0);
-
 
     while (!WindowShouldClose()) 
     {
         // Update
 		dt = deltaTime.getDeltaTime();
-        player.update(dt);
+        //player.update(dt);
 
 
 
@@ -71,8 +64,8 @@ int main()
 
 			
 			CPh::Vector2 camTargetCPh = CPh::Vector2(camera.target.x, camera.target.y);
-            camTargetCPh = CPh::Vector2::Lerp(camTargetCPh, player.getPosition(), 4.0f * dt);
-			camera.target = {camTargetCPh.x, camTargetCPh.y};
+            //camTargetCPh = CPh::Vector2::Lerp(camTargetCPh, player.getPosition(), 4.0f * dt);
+			//camera.target = {camTargetCPh.x, camTargetCPh.y};
            
         // Draw
         BeginDrawing();
@@ -87,15 +80,7 @@ int main()
 
         //player.draw();
         //Rock.draw();
-        CPh::Rectangle* rect = Rock.getPhysicsObject()->getCollisionObject().getRect();
-        CPh::Vector2 pos = rect->getPosition();
-        CPh::Vector2 size= rect->getSize();
-        DrawRectangle(pos.x,pos.y,size.x,size.y,RED);
         
-        CPh::Circle* cir = player.getPhysicsObject()->getCollisionObject().getCircle();
-        
-        DrawCircle(cir->position.x,cir->position.y,cir->radius,BLUE);
-
         EndMode2D();
 
 

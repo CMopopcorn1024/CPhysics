@@ -1,17 +1,16 @@
 #pragma once
 
+#include "CollisionObject.h"
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Vector2.h"
-#include "Tension.h"
+//#include "Tension.h" depricated 
 
 #include <vector>
 
 namespace CPhysics
 {
 	//forward declerations
-	class CollisionObject;
-	struct Collision;
 
 
 	struct PhysicsObjectProperties
@@ -25,34 +24,30 @@ namespace CPhysics
 		bool isStatic = false;
 		bool doCollision = true;
 	};
-	class PhysicsObject
+	class PhysicsObject : public CollisionObject
 	{
 	public:
-		PhysicsObject(PhysicsObjectProperties objProp, CollisionObject* colObj);
+		PhysicsObject(PhysicsObjectProperties objProp, std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles);
 
 		static void update(float dt);
 
 		void updatePosition(float dt);
 
 		//Getters
-		PhysicsObjectProperties& getProp() { return prop; }
-		CollisionObject& getCollisionObject() { return *colObj; }
-		Vector2 getVelocity() const { return velocity; }
+		Vector2 getVelocity() const;
 		Vector2 getPosition() const;
-		Vector2 getSize() const;
 
 
 		//setters
 		void setVelocity(Vector2 newVel) { velocity = newVel; }
 		void changeVelocity(Vector2 delta) { velocity+=delta; }
 		
-		static void addTension(Tension* tension) { TensionConnectors.push_back(tension); }
+		//static void addTension(Tension* tension) { TensionConnectors.push_back(tension); } depricated
 	private:
 		PhysicsObjectProperties prop;
-		CollisionObject* colObj = nullptr;
 		Vector2 velocity;
 		inline static std::vector<PhysicsObject*> physicObjects; 
-		inline static std::vector<Tension*> TensionConnectors;
+		//inline static std::vector<Tension*> TensionConnectors; depricated
 
 	};
 }

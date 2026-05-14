@@ -2,49 +2,47 @@
 #include <iostream>
 namespace CPhysics
 {
-	CollisionObject::CollisionObject(Rectangle* colRect) : rect(colRect) {}
-	CollisionObject::CollisionObject(Circle* colCircle) : circle(colCircle) {}
+	CollisionObject::CollisionObject(std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : rects(colRects), circles(colCircles) {}
 
-	Collision CollisionObject::checkCollision(PhysicsObject* objA, PhysicsObject* objB)
+	Collision CollisionObject::checkCollision(CollisionObject* objA, CollisionObject* objB)
 	{
-		Collision collision(objA, objB);
-		
-		CollisionObject& colObjA = objA->getCollisionObject();
-		CollisionObject& colObjB = objB->getCollisionObject();
-
-		bool objAIsRect = colObjA.isRect();
-		bool objBIsRect = colObjB.isRect();
+		Collision collision;
 
 
-		if (objAIsRect == colObjA.isCircle() || objBIsRect == colObjB.isCircle())
+
+		for (Rectangle* ARect : objA->rects)
 		{
-			return collision;
+			for (Rectangle* BRect : objB->rects)
+			{
+				collision.collision = SATRectCollision(ARect, BRect, collision.collisionNormal);
+			}
+			for (Circle* BCircle : objB->circles)
+			{
+				collision.collision = RectangleCircleCollision(ARect,BCircle,collision.collisionNormal);
+			}
 		}
-
-		if (!objAIsRect && !objBIsRect) 
-		{//Circle Collision
-			collision.collision = CircleCollision(*colObjA.getCircle(), *colObjB.getCircle(), collision.collisionNormal);
-		}
-		else if (objAIsRect != objBIsRect) 
-		{//One Rect Collision
-
-			Rectangle* rect = (objAIsRect)? colObjA.getRect() : colObjB.getRect();
-			Circle* circle = (objAIsRect) ? colObjB.getCircle() : colObjA.getCircle();
-			collision.collision = RectangleCircleCollision(rect, circle, collision.collisionNormal);
-		}
-		else 
-		{//2 Rect Collision 
-			collision.collision = SATRectCollision(colObjA.getRect(), colObjB.getRect(), collision.collisionNormal);
+		
+		
+		for (Circle* ACircle : objA->circles)
+		{
+			for (Rectangle* BRect : objB->rects)
+			{
+				collision.collision = RectangleCircleCollision(BRect, ACircle, collision.collisionNormal);
+			}
+			for (Circle* BCircle : objB->circles)
+			{
+				collision.collision = CircleCollision(ACircle,BCircle,collision.collisionNormal);
+			} 
 		}
 
 		return collision;
 	}
 
-	bool CollisionObject::CircleCollision(const Circle& circleA, const Circle& circleB, Vector2& collisionNormal)
+	bool CollisionObject::CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal)
 	{
-		Vector2 delta = circleB.position - circleA.position;
+		Vector2 delta = circleB->position - circleA->position;
 		float distance = delta.length();
-		float radiusSum = circleA.radius + circleB.radius;
+		float radiusSum = circleA->radius + circleB->radius;
 		if (distance < radiusSum)
 		{
 			collisionNormal = delta.Normalized();
