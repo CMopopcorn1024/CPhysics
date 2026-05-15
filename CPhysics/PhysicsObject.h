@@ -37,15 +37,19 @@ namespace CPhysics
 		Vector2 getVelocity() const;
 		Vector2 getPosition() const;
 
+		
 
 		//setters
 		void setVelocity(Vector2 newVel) { velocity = newVel; }
 		void changeVelocity(Vector2 delta) { velocity+=delta; }
+
 		
 		//static void addTension(Tension* tension) { TensionConnectors.push_back(tension); } depricated
-	private:
+	protected:
 		PhysicsObjectProperties prop;
 		Vector2 velocity;
+	private:
+		
 		inline static std::vector<PhysicsObject*> physicObjects; 
 		//inline static std::vector<Tension*> TensionConnectors; depricated
 

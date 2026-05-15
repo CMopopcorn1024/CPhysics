@@ -1,14 +1,15 @@
 #pragma once
 #include "PhysicsObject.h"
+#include "Object.h"
 #include <raylib.h>
 
 namespace CPh = CPhysics;
 
-class Player
+class Player : private CPh::Object
 {
 
 public:
-	Player(CPh::PhysicsObject* physicsObject, float speed);
+	Player(float speed);
 
 	void draw();
 
