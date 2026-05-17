@@ -32,7 +32,7 @@ namespace CPhysics
 
 
     };
-}
+
 
 struct objectData
 {
@@ -43,8 +43,8 @@ struct objectData
     bool isStatic;
     float bounciness;
     std::string imagePath;
-    std::vector<CPhysics::Rectangle*> colRects;
-    std::vector<CPhysics::Circle*> colCircles;
+    std::vector<CPhysics::Rectangle> colRects;
+    std::vector<CPhysics::Circle> colCircles;
 };
 
 void AddObject(std::string filePath, objectData objData)
@@ -71,28 +71,28 @@ void AddObject(std::string filePath, objectData objData)
     json rectData = json::array(); 
     json circleData = json::array();
 
-    for (CPhysics::Rectangle* rect : objData.colRects)
+    for (CPhysics::Rectangle rect : objData.colRects)
     {
-        CPhysics::Vector2 pos = rect->getPosition();
-        CPhysics::Vector2 size = rect->getSize();
+        CPhysics::Vector2 pos = rect.getPosition();
+        CPhysics::Vector2 size = rect.getSize();
         rectData.push_back
         ({
             {"x" , pos.x},
             {"y", pos.y},
             {"width", size.x},
             {"height", size.y},
-            {"rotation", rect->rotation}
+            {"rotation", rect.rotation}
 
         });
     }
 
-    for (CPhysics::Circle* circle : objData.colCircles)
+    for (CPhysics::Circle circle : objData.colCircles)
     {
         rectData.push_back
         ({
-            {"x" , circle->position.x},
-            {"y", circle->position.y},
-            {"radius", circle->radius}
+            {"x" , circle.position.x},
+            {"y", circle.position.y},
+            {"radius", circle.radius}
 
         });
     }
@@ -126,6 +126,7 @@ void CreatFile(const std::filesystem::path path)
 
 
 json LoadObjects(std::string filePath, std::string id)
+
 {
     std::filesystem::path path(filePath);
 
@@ -150,5 +151,7 @@ json LoadObjects(std::string filePath, std::string id)
         }
     }
 
+
+}
 
 }
