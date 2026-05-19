@@ -37,8 +37,9 @@ CPhysics::objectData newObject(const char* Path, const char* id)
     objData.y = data["y"];
     objData.x = data["x"];
     objData.isStatic = data["isStatic"];
-    objData.bounciness = data["counciness"];
+    objData.bounciness = data["bounciness"];
     objData.imagePath = data["imagePath"];
+    
     
     for (json rect: data["CollisionRectangles"])
     {
