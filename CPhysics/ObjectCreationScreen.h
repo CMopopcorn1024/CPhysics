@@ -51,5 +51,6 @@ CPhysics::objectData newObject(const char* Path, const char* id)
     }
 
 
+    return objData;
     
 }
