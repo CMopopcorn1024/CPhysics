@@ -24,7 +24,10 @@
     <ClCompile Include="CollisionObject.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Tension.cpp">
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCreation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,14 +53,11 @@
     <ClInclude Include="DeltaTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tension.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ObjectCreation.h">
+      <Filter>Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="ImageCollider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectSave.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Object.h">
+      <Filter>Geometry</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

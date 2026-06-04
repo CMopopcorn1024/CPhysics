@@ -27,6 +27,7 @@ namespace CPhysics
 	class PhysicsObject : public CollisionObject
 	{
 	public:
+		PhysicsObject() = default;
 		PhysicsObject(PhysicsObjectProperties objProp, std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles);
 
 		static void update(float dt);

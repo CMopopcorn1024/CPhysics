@@ -1,25 +1,25 @@
 #pragma once
-#include "PhysicsObject.h"
-#include "Object.h"
-#include <raylib.h>
 
+#include "raylib.h"
+#include "ImageObject.h"
+
+//CPhysics
+#include "Object.h"
 namespace CPh = CPhysics;
 
-class Player : private CPh::Object
+
+
+
+class Player : public CPhysics::Object, public ImageObject
 {
-
 public:
-	Player(float speed);
+	Player(json data,  float scale, float rotation);
 
-	void draw();
+	void draw() override
+	{
+		ImageObject::draw(position.x,position.y);
+		DrawCircle(position.x, position.y, 5, RED);
+	}
 
-	void update(float dt);
 	
-	CPh::Vector2 getPosition() const { return physicsObject->getPosition(); }
-	CPh::PhysicsObject* getPhysicsObject() {return physicsObject;}
-private:
-	int speed;
-	CPh::PhysicsObject* physicsObject;
-	void checkInput(float dt);
 };
-

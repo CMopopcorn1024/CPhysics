@@ -1,13 +1,15 @@
 #include "PhysicsObject.h"
 #include "CollisionObject.h"
 #include <iostream>
+#include <cstdlib>
+
 namespace CPhysics
 {
 	PhysicsObject::PhysicsObject(PhysicsObjectProperties objProp, std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : prop(objProp), CollisionObject(colRects,colCircles)
 	{
 		physicObjects.push_back(this);
 	}
-
+	
 	void PhysicsObject::update(float dt)
 	{
 		//Collision Implementation 

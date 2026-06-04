@@ -128,19 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CollisionObject.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectCreation.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
-    <ClCompile Include="Tension.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CollisionObject.h" />
     <ClInclude Include="DeltaTime.h" />
-    <ClInclude Include="ImageCollider.h" />
-    <ClInclude Include="ObjectSave.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectCreation.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Segment.h" />
-    <ClInclude Include="Tension.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

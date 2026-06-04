@@ -19,6 +19,8 @@ namespace CPhysics
 	public:
 		CollisionObject(std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles);
 
+		CollisionObject() = default;
+
 		static Collision checkCollision(CollisionObject* objA, CollisionObject* objB);
 
 		static bool CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal);

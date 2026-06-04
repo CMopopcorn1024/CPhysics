@@ -6,6 +6,7 @@
 
 #include "PhysicsObject.h"
 #include "DeltaTime.h"
+#include "ObjectCreation.h"
 
 #include "Harvestable.h"
 
@@ -13,6 +14,9 @@ namespace CPh = CPhysics;
 
 int main()
 {
+	const char* objectFilePath = "Objects.json";
+    //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Rock.png", "Basic Rock");
+    
     
     const int screenWidth = 800;
     const int screenHeight = 600;
@@ -24,16 +28,7 @@ int main()
     CPh::DeltaTime deltaTime;
 
 
-    //New way to load object type combining Object.h and ColliderSave.h into one object using a graphical interfase to create the object
-    
-        /*Player player(&playerPhysicsObject, 35.0f);
-
-        Texture2D texture  = LoadTexture("Game/Rock.png");
-    
-        Item rockItem("Rock", texture, 1,0);
-        CPh::PhysicsObject rockPhysicsObject = CPh::loadObject("Rock");
-        
-        Harvestable Rock(rockItem, &rockPhysicsObject,texture,1,0);*/
+	Player player = Player(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Basic Rock"), 1.0f, 0);
 
     Camera2D camera = { 0 };
 
@@ -78,8 +73,8 @@ int main()
        
         
 
-        //player.draw();
-        //Rock.draw();
+        player.draw();
+        
         
         EndMode2D();
 
