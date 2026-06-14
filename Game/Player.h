@@ -13,13 +13,18 @@ namespace CPh = CPhysics;
 class Player : public CPhysics::Object, public ImageObject
 {
 public:
-	Player(json data,  float scale, float rotation);
+	Player(json data,  float scale, float rotation, float speed);
 
 	void draw() override
 	{
 		ImageObject::draw(position.x,position.y);
-		DrawCircle(position.x, position.y, 5, RED);
 	}
 
+	
+	void update(float dt);
+
+private:
+	float speed;
+	void checkInput(float dt);
 	
 };
