@@ -58,11 +58,12 @@ int main()
 
 
 			
-			CPh::Vector2 camTargetCPh = CPh::Vector2(camera.target.x, camera.target.y);
-            camTargetCPh = CPh::Vector2::Lerp(camTargetCPh, player.getPosition(), 4.0f * dt);
-			camera.target = {camTargetCPh.x, camTargetCPh.y};
-			std::cout << "Camera Target: " << player.getPosition().x << ", " << player.getPosition().y << std::endl;
-           
+			CPh::Vector2 camTarget = CPh::Vector2(camera.target.x, camera.target.y);
+            float t = std::clamp(4.0f * dt, 0.0f, 1.0f);
+            std::cout << "BEFORE: " << camTarget.x << " " << camTarget.y << std::endl;
+            camTarget = CPh::Vector2::Lerp(camTarget, player.getPosition(), t);
+            std::cout << "AFTER: " << camTarget.x << " " << camTarget.y << std::endl;
+			camera.target = {camTarget.x, camTarget.y};
         // Draw
         BeginDrawing();
 
