@@ -1,11 +1,14 @@
 #include "Harvestable.h"
 
-Harvestable::Harvestable(Item harvestItem, CPh::PhysicsObject* physicsObject, Texture2D texture, float scale, float rotation) : item(harvestItem), physicsObject(physicsObject), ImageObject(texture,scale,rotation)
+Harvestable::Harvestable(json data, Item harvestItem,  float scale, float rotation) : CPh::Object(data), item(harvestItem), physicsObject(physicsObject), ImageObject(LoadTexture(data["ImagePath"].get<std::string>().c_str()),scale,rotation)
 {
 }
 
 void Harvestable::draw()
 {
-	CPh::Vector2 position = physicsObject->getPosition();
-	ImageObject::draw(position.x, position.y);
+	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);\
+	for (CPh::Rectangle* rect : rects)
+	{
+		DrawRectangle(rect->getPosition().x - texture.width * scale / 2, rect->getPosition().y - texture.height * scale / 2, rect->getSize().x, rect->getSize().y, RED);
+	}
 }

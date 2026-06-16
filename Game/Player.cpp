@@ -8,6 +8,9 @@ void Player::update(float dt)
 	checkInput(dt);
 }
 
+
+
+
 void Player::checkInput(float dt) 
 {
 	CPh::Vector2 changeVel(0, 0);
@@ -17,4 +20,14 @@ void Player::checkInput(float dt)
 	if (IsKeyDown(KEY_D)) changeVel.x += 1;
 	changeVel = changeVel.Normalized() * speed;
 	velocity += changeVel * 100 * dt;
+}
+
+
+void Player::draw()
+{
+	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);
+	for (CPh::Rectangle* rect : rects)
+	{
+		DrawRectangle(rect->getPosition().x - texture.width * scale / 2, rect->getPosition().y - texture.height * scale / 2, rect->getSize().x, rect->getSize().y, RED);
+	}
 }

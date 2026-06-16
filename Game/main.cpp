@@ -16,7 +16,7 @@ int main()
 {
 	const char* objectFilePath = "Objects.json";
     //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Rock.png", "Basic Rock");
-    
+    //std::abort();
     
     const int screenWidth = 800;
     const int screenHeight = 600;
@@ -28,7 +28,10 @@ int main()
     CPh::DeltaTime deltaTime;
 
 
-	Player player = Player(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Basic Rock"), 1.0f, 0, 200.0f);
+	Player player = Player(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Player"), 0.5f, 0, 55.0f);
+
+	Item basicRockItem = Item("Rock", LoadTexture("Rock.png"), 0.5f, 0);
+    Harvestable basicRock = Harvestable(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Basic Rock"), basicRockItem, 1, 0);
 
     Camera2D camera = { 0 };
 
@@ -60,10 +63,9 @@ int main()
 			
 			CPh::Vector2 camTarget = CPh::Vector2(camera.target.x, camera.target.y);
             float t = std::clamp(4.0f * dt, 0.0f, 1.0f);
-            std::cout << "BEFORE: " << camTarget.x << " " << camTarget.y << std::endl;
             camTarget = CPh::Vector2::Lerp(camTarget, player.getPosition(), t);
-            std::cout << "AFTER: " << camTarget.x << " " << camTarget.y << std::endl;
 			camera.target = {camTarget.x, camTarget.y};
+        
         // Draw
         BeginDrawing();
 
@@ -76,6 +78,7 @@ int main()
         
 
         player.draw();
+		basicRock.draw();
         
         
         EndMode2D();

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include "raylib.h"
 #include "ImageObject.h"
 
@@ -15,10 +17,7 @@ class Player : public CPhysics::Object, public ImageObject
 public:
 	Player(json data,  float scale, float rotation, float speed);
 
-	void draw() override
-	{
-		ImageObject::draw(position.x,position.y);
-	}
+	void draw() override;
 
 	
 	void update(float dt);

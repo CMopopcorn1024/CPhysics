@@ -131,6 +131,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectCreation.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />

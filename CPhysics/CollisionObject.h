@@ -23,9 +23,9 @@ namespace CPhysics
 
 		static Collision checkCollision(CollisionObject* objA, CollisionObject* objB);
 
-		static bool CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal);
+		//static bool CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal);
 
-		static bool RectangleCircleCollision(const Rectangle* rect, const Circle* circle, Vector2& collisionNormal);
+		//static bool RectangleCircleCollision(const Rectangle* rect, const Circle* circle, Vector2& collisionNormal);
 
 		static bool SATRectCollision(const Rectangle* rectA, const Rectangle* rectB, Vector2& collisionNormal);
 		

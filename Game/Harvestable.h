@@ -1,16 +1,16 @@
 #pragma once
 #include "Item.h"
 #include "ImageObject.h"
-#include "PhysicsObject.h"
+#include "Object.h"
 
 #include <raylib.h>
 
 namespace CPh = CPhysics;
 
-class Harvestable : public ImageObject
+class Harvestable : public ImageObject, public CPhysics::Object
 {
 public:
-	Harvestable(Item harvestItem, CPh::PhysicsObject* physicsObject, Texture2D texture, float scale, float rotation);
+	Harvestable(json data, Item harvestItem, float scale, float rotation);
 	void draw() override;
 	CPh::PhysicsObject* getPhysicsObject() {return physicsObject;}
 private: 

@@ -2,7 +2,10 @@
 #include <iostream>
 namespace CPhysics
 {
-	CollisionObject::CollisionObject(std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : rects(colRects), circles(colCircles) {}
+	CollisionObject::CollisionObject(std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : rects(colRects), circles(colCircles) 
+	{
+	
+	}
 
 	Collision CollisionObject::checkCollision(CollisionObject* objA, CollisionObject* objB)
 	{
@@ -18,7 +21,7 @@ namespace CPhysics
 			}
 			for (Circle* BCircle : objB->circles)
 			{
-				collision.collision = RectangleCircleCollision(ARect,BCircle,collision.collisionNormal);
+				//collision.collision = RectangleCircleCollision(ARect,BCircle,collision.collisionNormal);
 			}
 		}
 		
@@ -27,18 +30,18 @@ namespace CPhysics
 		{
 			for (Rectangle* BRect : objB->rects)
 			{
-				collision.collision = RectangleCircleCollision(BRect, ACircle, collision.collisionNormal);
+				//collision.collision = RectangleCircleCollision(BRect, ACircle, collision.collisionNormal);
 			}
 			for (Circle* BCircle : objB->circles)
 			{
-				collision.collision = CircleCollision(ACircle,BCircle,collision.collisionNormal);
+				//collision.collision = CircleCollision(ACircle,BCircle,collision.collisionNormal);
 			} 
 		}
 
 		return collision;
 	}
 
-	bool CollisionObject::CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal)
+	/*bool CollisionObject::CircleCollision(const Circle* circleA, const Circle* circleB, Vector2& collisionNormal)
 	{
 		Vector2 delta = circleB->position - circleA->position;
 		float distance = delta.length();
@@ -62,7 +65,7 @@ namespace CPhysics
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	bool CollisionObject::SATRectCollision(const Rectangle* rectA, const Rectangle* rectB, Vector2& collisionNormal)
 	{
