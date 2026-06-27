@@ -44,8 +44,10 @@ namespace CPhysics
 
 								objA->velocity += collision.collisionNormal * -AImpulse / AProp.mass;
 								objB->velocity += collision.collisionNormal *  BImpulse / BProp.mass;
+								std::cout << collision.collisionNormal.x << " " << collision.collisionNormal.y << std::endl;
 
 							}
+					
 							
 						}
 						
@@ -86,6 +88,10 @@ namespace CPhysics
 	void PhysicsObject::updatePosition(float dt)
 	{
 		position += velocity * dt;
+		for (Rectangle* rect : rects) 
+		{
+			rect->calculate();
+		}
 	}
 
 

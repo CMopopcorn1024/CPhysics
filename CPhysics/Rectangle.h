@@ -6,6 +6,7 @@
 
 namespace CPhysics
 {
+	class CollisionObject;
 
 	class Rectangle 
 	{
@@ -37,10 +38,14 @@ namespace CPhysics
 
 		Vector2 getSize() const { return size; }
 
+		void setParent(CollisionObject* p) { parent = p; calculate(); }
 
-	private:
 		void calculate();
 
+
+	private:
+
+		CollisionObject* parent = nullptr;
 
 		Vector2 origin, size;
 

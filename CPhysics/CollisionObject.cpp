@@ -4,7 +4,10 @@ namespace CPhysics
 {
 	CollisionObject::CollisionObject(std::vector<Rectangle*> colRects, std::vector<Circle*> colCircles) : rects(colRects), circles(colCircles) 
 	{
-	
+		for (Rectangle* rect : colRects) 
+		{
+			rect->setParent(this);
+		}
 	}
 
 	Collision CollisionObject::checkCollision(CollisionObject* objA, CollisionObject* objB)
@@ -15,9 +18,13 @@ namespace CPhysics
 
 		for (Rectangle* ARect : objA->rects)
 		{
+
+
 			for (Rectangle* BRect : objB->rects)
 			{
+
 				collision.collision = SATRectCollision(ARect, BRect, collision.collisionNormal);
+
 			}
 			for (Circle* BCircle : objB->circles)
 			{

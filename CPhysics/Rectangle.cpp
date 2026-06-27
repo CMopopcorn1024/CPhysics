@@ -1,5 +1,6 @@
 #include "Rectangle.h"
 
+#include "CollisionObject.h"
 #include <iostream>
 namespace CPhysics
 {
@@ -70,7 +71,6 @@ namespace CPhysics
 
 	void Rectangle::calculate()
 	{
-
 		Vector2 half = size * 0.5f;
 
 		Vector2 pos = getPosition();
@@ -94,8 +94,10 @@ namespace CPhysics
 		right.end = bottomRight;
 	}
 
+
 	Vector2 Rectangle::getPosition() const 
-	{ 
+	{
+		if (parent != nullptr) return parent->getPosition() + origin;
 		return origin; 
 	}
 }

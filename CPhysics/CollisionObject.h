@@ -29,6 +29,7 @@ namespace CPhysics
 
 		static bool SATRectCollision(const Rectangle* rectA, const Rectangle* rectB, Vector2& collisionNormal);
 		
+		const Vector2 getPosition() { return position; }
 		
 	protected:
 		Vector2 position;

@@ -15,7 +15,7 @@ namespace CPh = CPhysics;
 int main()
 {
 	const char* objectFilePath = "Objects.json";
-    //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Rock.png", "Basic Rock");
+   // CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Rock.png", "Basic Rock");
     //std::abort();
     
     const int screenWidth = 800;

@@ -9,6 +9,7 @@ void Harvestable::draw()
 	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);\
 	for (CPh::Rectangle* rect : rects)
 	{
-		DrawRectangle(rect->getPosition().x - texture.width * scale / 2, rect->getPosition().y - texture.height * scale / 2, rect->getSize().x, rect->getSize().y, RED);
+		//DrawRectangle(rect->getPosition().x - texture.width * scale / 2, rect->getPosition().y - texture.height * scale / 2, rect->getSize().x, rect->getSize().y, RED);
+		DrawRectangle(rect->topLeft.x, rect->topLeft.y, rect->bottomRight.x - rect->topLeft.x, rect->bottomRight.y - rect->topLeft.y, RED);
 	}
 }
