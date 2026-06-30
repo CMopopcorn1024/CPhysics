@@ -124,7 +124,6 @@ namespace CPhysics
 			smallestAxis = smallestAxis * -1.0f;
 		}
 		collisionNormal = smallestAxis;
-
 		return true;
 	}
 

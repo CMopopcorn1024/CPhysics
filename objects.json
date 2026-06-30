@@ -23,20 +23,20 @@
         "CollisionCircles": [],
         "CollisionRectangles": [
             {
-                "height": 102.6875,
+                "height": 150.35000610351563,
                 "rotation": 0,
-                "width": 169.72500610351563,
-                "x": 72.8499984741211,
-                "y": 33.32500076293945
+                "width": 244.51251220703125,
+                "x": 32.9375,
+                "y": 6.200000286102295
             }
         ],
         "ImagePath": "Rock.png",
         "bounciness": 0.5,
         "drag": 0.1,
         "id": "Basic Rock",
-        "isStatic": false,
+        "isStatic": true,
         "mass": 100,
-        "x": 1000,
-        "y": 1000
+        "x": 500,
+        "y": 500
     }
 ]
