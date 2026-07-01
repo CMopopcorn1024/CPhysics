@@ -12,9 +12,7 @@ class Harvestable : public ImageObject, public CPhysics::Object
 public:
 	Harvestable(json data, Item harvestItem, float scale, float rotation);
 	void draw() override;
-	CPh::PhysicsObject* getPhysicsObject() {return physicsObject;}
 private: 
 	Item item;
-	CPh::PhysicsObject* physicsObject;
 };
 

@@ -27,8 +27,8 @@ void Player::draw()
 {
 	//std::cout << velocity.x << " " << velocity.y << std::endl;
 	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);
-	for (CPh::Rectangle* rect : rects)
+	/*for (CPh::Rectangle* rect : rects)
 	{
 		DrawRectangle(rect->topLeft.x, rect->topLeft.y, rect->bottomRight.x - rect->topLeft.x, rect->bottomRight.y - rect->topLeft.y, RED);
-	}
+	}*/
 }
