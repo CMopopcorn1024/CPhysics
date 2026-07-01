@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Tech">
+      <UniqueIdentifier>{1ff88e6a-af4b-4d8d-bb46-c3809d61b74d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +33,12 @@
     <ClCompile Include="ImageObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Electronic.cpp">
+      <Filter>Tech</Filter>
+    </ClCompile>
+    <ClCompile Include="Wire.cpp">
+      <Filter>Tech</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Outline.txt" />
@@ -46,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="ImageObject.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Electronic.h">
+      <Filter>Tech</Filter>
+    </ClInclude>
+    <ClInclude Include="Wire.h">
+      <Filter>Tech</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

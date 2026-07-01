@@ -129,11 +129,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Electronic.cpp" />
     <ClCompile Include="Harvestable.cpp" />
     <ClCompile Include="ImageObject.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Wire.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CPhysics\CPhysics.vcxproj">
@@ -144,10 +146,12 @@
     <Text Include="Outline.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Electronic.h" />
     <ClInclude Include="Harvestable.h" />
     <ClInclude Include="ImageObject.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Wire.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Objects.json" />
