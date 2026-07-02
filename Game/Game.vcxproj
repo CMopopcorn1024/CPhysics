@@ -134,6 +134,7 @@
     <ClCompile Include="ImageObject.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="BuildMap.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Wire.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="Harvestable.h" />
     <ClInclude Include="ImageObject.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="BuildMap.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Wire.h" />
   </ItemGroup>

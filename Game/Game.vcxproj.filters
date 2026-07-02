@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,54 +8,77 @@
     <Filter Include="Tech">
       <UniqueIdentifier>{1ff88e6a-af4b-4d8d-bb46-c3809d61b74d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{830806ca-ac3b-4bee-a7ba-0788a17cb938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map\Materials">
+      <UniqueIdentifier>{ba4a10da-2f73-4cb1-a1f4-73d57e93ae60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NonCode">
+      <UniqueIdentifier>{6c4f36c3-d721-4104-aa9a-52b1695eaf91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{13d2983b-9c01-4d6a-8e98-2c57f5782bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{98354a6f-a2f3-4b39-94fd-cdea70675f57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Harvestable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Electronic.cpp">
       <Filter>Tech</Filter>
     </ClCompile>
     <ClCompile Include="Wire.cpp">
       <Filter>Tech</Filter>
     </ClCompile>
+    <ClCompile Include="BuildMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Harvestable.cpp">
+      <Filter>Map\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Map\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ImageObject.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Outline.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Harvestable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Electronic.h">
       <Filter>Tech</Filter>
     </ClInclude>
     <ClInclude Include="Wire.h">
       <Filter>Tech</Filter>
     </ClInclude>
+    <ClInclude Include="BuildMap.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Harvestable.h">
+      <Filter>Map\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Map\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageObject.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Objects.json" />
+    <Text Include="Outline.txt">
+      <Filter>NonCode</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Objects.json">
+      <Filter>NonCode</Filter>
+    </None>
   </ItemGroup>
 </Project>
