@@ -10,13 +10,16 @@
 
 #include "Harvestable.h"
 
+#include "BuildMap.h"
+#include "Wire.h"
+
 namespace CPh = CPhysics;
 
 int main()
 {
-	const char* objectFilePath = "Objects.json";
-   //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Rock.png", "Basic Rock");
-   //std::abort();
+   const char* objectFilePath = "Objects.json";
+       //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Assets/Unloaded.png", "Unloaded");
+       //std::abort();
     
     const int screenWidth = 800;
     const int screenHeight = 600;
@@ -30,8 +33,20 @@ int main()
 
 	Player player = Player(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Player"), 0.5f, 0, 55.0f);
 
+    BuildMap map = BuildMap(50);
+
+    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), 0, 0, &map, 50, 5);
+
+    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), -1 , 0, &map, 50, 5);
+    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), 0, -1, &map, 50, 5);
+       
+
+
 	Item basicRockItem = Item("Rock", LoadTexture("Rock.png"), 0.5f, 0);
     Harvestable basicRock = Harvestable(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Basic Rock"), basicRockItem, 1, 0);
+
+    
+
 
     Camera2D camera = { 0 };
 
@@ -52,6 +67,7 @@ int main()
     {
         // Update
 		dt = deltaTime.getDeltaTime();
+        
         player.update(dt);
 
 
@@ -76,9 +92,10 @@ int main()
         
        
         
-
+        map.draw();
         player.draw();
 		basicRock.draw();
+
         
         
         EndMode2D();

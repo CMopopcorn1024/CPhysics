@@ -38,5 +38,17 @@
         "mass": 100,
         "x": 500,
         "y": 500
+    },
+    {
+        "CollisionCircles": [],
+        "CollisionRectangles": [],
+        "ImagePath": "Assets/Unloaded.png",
+        "bounciness": 0.5,
+        "drag": 0.1,
+        "id": "Unloaded",
+        "isStatic": true,
+        "mass": 1,
+        "x": 0,
+        "y": 0
     }
 ]

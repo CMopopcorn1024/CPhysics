@@ -7,6 +7,7 @@ public:
 
 	virtual void draw(float x, float y);
 	virtual void draw() {};
+	void makeSize(float size);
 protected:
 	float rotation, scale;
 	Texture2D texture;

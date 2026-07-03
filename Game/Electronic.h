@@ -18,6 +18,8 @@ public:
 	virtual void connectionMapUpdate(Electronic* updatedElectronic);
 	int getLocalX() { return LocalX; }
 	int getLocalY() { return LocalY; }
+
+	void draw() override;
 protected:
 	float powerStorageCapacity;
 	float powerFlowRate;
