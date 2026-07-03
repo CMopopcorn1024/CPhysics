@@ -35,11 +35,12 @@ int main()
 
     BuildMap map = BuildMap(50);
 
-    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), 0, 0, &map, 50, 5);
+    Wire(0, 0, &map, 50, 5);
+    Wire(1, 0, &map, 50, 5);
+    Wire( 0, -1, &map, 50, 5);
 
-    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), -1 , 0, &map, 50, 5);
-    Wire(CPhysicsObjectCreation::ObjectCreator::LoadObjects(objectFilePath, "Unloaded"), 0, -1, &map, 50, 5);
-       
+
+	map.updateConnectionMaps();
 
 
 	Item basicRockItem = Item("Rock", LoadTexture("Rock.png"), 0.5f, 0);

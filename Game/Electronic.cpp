@@ -1,12 +1,15 @@
 #include "Electronic.h"
 
-
-Electronic::Electronic(json data, float scale, float rotation, int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate, float operatingPower, std::vector<Electronic*> connectedElectronics)
-	: CPh::Object(data), ImageObject(LoadTexture(data["ImagePath"].get<std::string>().c_str()), scale, rotation), LocalX(LocalX), LocalY(LocalY), map(map), powerStorageCapacity(powerStorageCapacity), powerFlowRate(powerFlowRate), operatingPower(operatingPower)
+#include <iostream>
+Electronic::Electronic( float scale, float rotation, int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate, float operatingPower, std::vector<Electronic*> connectedElectronics)
+	:  ImageObject(LoadTexture("Assets/Unloaded.png"), scale, rotation), LocalX(LocalX), LocalY(LocalY), map(map), powerStorageCapacity(powerStorageCapacity), powerFlowRate(powerFlowRate), operatingPower(operatingPower)
 {
 	map->addElectronic(LocalX, LocalY, this);
 	position = map->getPosition(LocalX, LocalY);
 	ImageObject::makeSize(50);
+
+	
+
 }
 
 
@@ -33,14 +36,24 @@ void Electronic::sendPower(float dt)
 	}
 }
 
-void Electronic::connectionMapUpdate(Electronic* updatedElectronic)
+void Electronic::connectionMapUpdate(int x, int y)
 {
-	int dx = updatedElectronic->getLocalX() - LocalX;
-	int dy = updatedElectronic->getLocalY() - LocalY;
-	connectionDirections.push_back(std::make_pair(dx, dy));
+	std::cout << LocalX << " " << LocalY << " is connected to " << x << " " << y << std::endl;
+	int dx = x - LocalX;
+	int dy = y - LocalY;
+	std::pair<int, int> direction = std::make_pair(dx, dy);
+	if (std::find(connectionDirections.begin(), connectionDirections.end(), direction) == connectionDirections.end())
+	{
+		connectionDirections.push_back(direction);
+	}
 }
 
 void Electronic::draw() 
 {
 	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);
+}
+
+void Electronic::connectionElectronicUpdate()
+{
+	
 }

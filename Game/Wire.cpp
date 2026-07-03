@@ -1,17 +1,19 @@
 #include "Wire.h"
+#include <iostream>
 
-
-Wire::Wire(json data, int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate)
-	: Electronic(data, 1.0f, 0.0f, LocalX, LocalY, map, powerStorageCapacity, powerFlowRate, 0.0f,std::vector<Electronic*>())
+Wire::Wire(int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate)
+	: Electronic( 1.0f, 0.0f, LocalX, LocalY, map, powerStorageCapacity, powerFlowRate, 0.0f,std::vector<Electronic*>())
 {
 	
 }
 
-void Wire::connectionMapUpdate(Electronic* updatedElectronic)
+void Wire::connectionElectronicUpdate()
 {
-	std::cout << "\n\nNew Connetion\t" << LocalX << ", " << LocalY << std::endl;
-	Electronic::connectionMapUpdate(updatedElectronic);
-
+	std::cout << "\n\nUpdating Wire at (" << LocalX << ", " << LocalY << ")" << std::endl;
+	for (const auto& dir : connectionDirections)
+	{
+		std::cout << "Connected to direction: (" << dir.first << ", " << dir.second << ")" << std::endl;
+	}
 	int numConnections = connectionDirections.size();
 	if (numConnections == 0) texture = LoadTexture("Assets/Technology/Wires/0Wire.png");
 

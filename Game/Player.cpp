@@ -25,7 +25,6 @@ void Player::checkInput(float dt)
 
 void Player::draw()
 {
-	//std::cout << velocity.x << " " << velocity.y << std::endl;
 	ImageObject::draw(position.x - texture.width * scale / 2, position.y - texture.height * scale / 2);
 	/*for (CPh::Rectangle* rect : rects)
 	{

@@ -7,41 +7,40 @@ BuildMap::BuildMap(int cellSize) : cellSize(cellSize) {}
 bool BuildMap::addElectronic(int x, int y, Electronic* electronic)
 {
 	std::pair<int, int> key = std::make_pair(x, y);
+	newElectricPosition.push_back(key);
 	if (electronicsMap.find(key) != electronicsMap.end())
 	{
 		return false; 
 	}
 	electronicsMap[key] = electronic;
-	Electronic* nearElectronic = getElectronic(x+1, y);
+
+	Electronic* nearElectronic = getElectronic(electronic->getLocalX() + 1, electronic->getLocalY());
 	if (nearElectronic != nullptr)
 	{
-		nearElectronic->connectionMapUpdate(electronic);		
-		electronic->connectionMapUpdate(nearElectronic);
-
+		nearElectronic->connectionMapUpdate(x,y);
+		electronic->connectionMapUpdate(x+1,y);
 	}
 
-	if ((nearElectronic = getElectronic(x - 1, y)) != nullptr)
+	if ((nearElectronic = getElectronic(electronic->getLocalX() - 1, electronic->getLocalY())) != nullptr)
 	{
-		nearElectronic->connectionMapUpdate(electronic);
-		electronic->connectionMapUpdate(nearElectronic);
-
-
+		nearElectronic->connectionMapUpdate(x,y);
+		electronic->connectionMapUpdate(x-1,y);
 	}
 
-	if ((nearElectronic = getElectronic(x, y + 1)) != nullptr) 
+	
+
+	if ((nearElectronic = getElectronic(electronic->getLocalX(), electronic->getLocalY() + 1)) != nullptr)
 	{
-		nearElectronic->connectionMapUpdate(electronic);
-		electronic->connectionMapUpdate(nearElectronic);
-
-
+		nearElectronic->connectionMapUpdate(x,y);
+		electronic->connectionMapUpdate(x,y+1);
 	}
 
-	if ((nearElectronic = getElectronic(x, y - 1)) != nullptr) 
+	if ((nearElectronic = getElectronic(electronic->getLocalX(), electronic->getLocalY() - 1)) != nullptr)
 	{
-		nearElectronic->connectionMapUpdate(electronic);
-		electronic->connectionMapUpdate(nearElectronic);
-
+		nearElectronic->connectionMapUpdate(x,y);
+		electronic->connectionMapUpdate(x,y-1);
 	}
+	
 
 	
 	return true;
@@ -64,4 +63,13 @@ void BuildMap::draw()
 	{
 		entry.second->draw();
 	}
+}
+
+void BuildMap::updateConnectionMaps()
+{
+	for (std::pair<int, int> pos : newElectricPosition)
+	{
+		getElectronic(pos.first, pos.second)->connectionElectronicUpdate();
+	}
+	newElectricPosition.clear();
 }

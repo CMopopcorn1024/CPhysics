@@ -4,8 +4,8 @@
 class Wire : public Electronic
 {
 public:
-	Wire(json data, int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate);
-	void connectionMapUpdate(Electronic* updatedElectronic) override;
+	Wire(int LocalX, int LocalY, BuildMap* map, float powerStorageCapacity, float powerFlowRate);
+	void connectionElectronicUpdate() override;
 	
 };
 

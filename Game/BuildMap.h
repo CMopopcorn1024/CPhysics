@@ -25,8 +25,10 @@ public:
 	Electronic* getElectronic(int x, int y);
 	CPh::Vector2 getPosition(int x, int y) { return CPh::Vector2(x * cellSize, y * cellSize); }
 	void draw();
+	void updateConnectionMaps();
 private:
 	int cellSize;
 	std::unordered_map<std::pair<int, int>, Electronic*, Pairhash > electronicsMap;
+	std::vector<std::pair<int, int>> newElectricPosition;
 };
 
