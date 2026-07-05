@@ -1,66 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Geometry">
-      <UniqueIdentifier>{d131d8fa-4429-4255-a04c-68d54d9614eb}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="PhysicsObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionObject.cpp">
-      <Filter>Geometry</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectCreation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Geometry</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Vector2.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
+      <Filter>Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionObject.h">
+    <ClInclude Include="Vector2.h">
       <Filter>Geometry</Filter>
     </ClInclude>
     <ClInclude Include="Segment.h">
       <Filter>Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="DeltaTime.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionObject.h">
+      <Filter>Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Backend</Filter>
     </ClInclude>
     <ClInclude Include="ObjectCreation.h">
-      <Filter>Geometry</Filter>
+      <Filter>Backend</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Geometry</Filter>
+    <ClInclude Include="DeltaTime.h">
+      <Filter>Backend</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionObject.cpp">
+      <Filter>Backend</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Backend</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCreation.cpp">
+      <Filter>Backend</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{77544016-1015-494c-bf5a-f185b9b6956b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Backend">
+      <UniqueIdentifier>{c2e1cecb-0393-4586-a2c4-ec60d2fdf4e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
