@@ -18,14 +18,14 @@ namespace CPh = CPhysics;
 int main()
 {
    const char* objectFilePath = "Objects.json";
-       //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Assets/Unloaded.png", "Unloaded");
+       //CPhysicsObjectCreation::ObjectCreator::AddObject(objectFilePath,"Assets/Unloaded.png", "67");
        //std::abort();
     
     const int screenWidth = 800;
     const int screenHeight = 600;
 
     InitWindow(screenWidth, screenHeight, "Multi World Farmer");
-
+  
 
     SetTargetFPS(60);
     CPh::DeltaTime deltaTime;
@@ -66,6 +66,7 @@ int main()
 
     while (!WindowShouldClose()) 
     {
+        std::cout << "test" << std::endl;
         // Update
 		dt = deltaTime.getDeltaTime();
         
@@ -87,7 +88,7 @@ int main()
         BeginDrawing();
 
         ClearBackground(DARKBROWN);
-
+        
         //Effected by camera
         BeginMode2D(camera);
         
