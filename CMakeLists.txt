@@ -8,23 +8,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(external/raylib)
 
-# Create static library
+
 add_library(CPhysics STATIC
-    CPhysics/Circle.cpp
-    CPhysics/CollisionObject.cpp
-    CPhysics/Object.cpp
-    CPhysics/ObjectCreation.cpp
-    CPhysics/PhysicsObject.cpp
-    CPhysics/Rectangle.cpp
-    CPhysics/Segment.cpp
-    CPhysics/Vector2.cpp
+    src/Circle.cpp
+    src/CollisionObject.cpp
+    src/Object.cpp
+    src/ObjectCreation.cpp
+    src/PhysicsObject.cpp
+    src/Rectangle.cpp
+    src/Segment.cpp
+    src/Vector2.cpp
+    src/DeltaTime.cpp
 
 )
 
-# Tell projects using CPhysics where the headers are
 target_include_directories(CPhysics PUBLIC
-    CPhysics
-    external/nlohmann-json/single_include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/external/nlohmann-json/single_include
+)
+
+install(TARGETS CPhysics
+    ARCHIVE DESTINATION lib
+)
+
+install(DIRECTORY include/
+    DESTINATION include
 )
 
 target_link_libraries(CPhysics PUBLIC
