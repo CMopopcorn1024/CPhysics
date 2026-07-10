@@ -1,0 +1,6 @@
+[submodule "external/external/nlohmann-json"]
+	path = external/external/nlohmann-json
+	url = https://github.com/nlohmann/json.git
+[submodule "external/external/raylib"]
+	path = external/external/raylib
+	url = https://github.com/raysan5/raylib.git

@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/calebcukierman/Documents/GitHub/CPhysics/build/cmake_install.cmake",
+		"/Users/calebcukierman/Documents/GitHub/CPhysics/build/external/raylib/cmake_install.cmake",
+		"/Users/calebcukierman/Documents/GitHub/CPhysics/build/external/raylib/raylib/cmake_install.cmake",
+		"/Users/calebcukierman/Documents/GitHub/CPhysics/build/external/raylib/raylib/external/glfw/cmake_install.cmake",
+		"/Users/calebcukierman/Documents/GitHub/CPhysics/build/external/raylib/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
