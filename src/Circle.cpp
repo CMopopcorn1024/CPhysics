@@ -1,4 +1,4 @@
-#include "Circle.h"
+#include <CPhysics/Circle.h>
 
 namespace CPhysics 
 {

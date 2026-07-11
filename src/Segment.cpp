@@ -1,4 +1,4 @@
-#include "Segment.h"
+#include <CPhysics/Segment.h>
 #include <algorithm>
 
 namespace CPhysics

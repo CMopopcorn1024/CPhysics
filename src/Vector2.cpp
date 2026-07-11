@@ -1,4 +1,4 @@
-#include "Vector2.h"
+#include <CPhysics/Vector2.h>
 
 namespace CPhysics
 {

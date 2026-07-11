@@ -1,5 +1,5 @@
-#include "PhysicsObject.h"
-#include "CollisionObject.h"
+#include <CPhysics/PhysicsObject.h>
+#include <CPhysics/CollisionObject.h>		
 #include <iostream>
 #include <cstdlib>
 

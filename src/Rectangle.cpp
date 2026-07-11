@@ -1,6 +1,6 @@
-#include "Rectangle.h"
+#include <CPhysics/Rectangle.h>
 
-#include "CollisionObject.h"
+#include <CPhysics/CollisionObject.h>
 #include <iostream>
 namespace CPhysics
 {

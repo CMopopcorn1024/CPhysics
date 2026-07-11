@@ -1,4 +1,4 @@
-#include "CollisionObject.h"	
+#include <CPhysics/CollisionObject.h>
 #include <iostream>
 namespace CPhysics
 {

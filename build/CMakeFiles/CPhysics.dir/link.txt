@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCPhysics.a CMakeFiles/CPhysics.dir/CPhysics/Circle.cpp.o CMakeFiles/CPhysics.dir/CPhysics/CollisionObject.cpp.o CMakeFiles/CPhysics.dir/CPhysics/Object.cpp.o CMakeFiles/CPhysics.dir/CPhysics/ObjectCreation.cpp.o CMakeFiles/CPhysics.dir/CPhysics/PhysicsObject.cpp.o CMakeFiles/CPhysics.dir/CPhysics/Rectangle.cpp.o CMakeFiles/CPhysics.dir/CPhysics/Segment.cpp.o CMakeFiles/CPhysics.dir/CPhysics/Vector2.cpp.o
-/usr/bin/ranlib libCPhysics.a
