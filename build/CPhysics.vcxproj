@@ -309,6 +309,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\Segment.cpp" />
     <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\Vector2.cpp" />
     <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\DeltaTime.cpp" />
+    <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\Perlin.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

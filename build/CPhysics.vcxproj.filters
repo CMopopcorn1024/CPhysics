@@ -28,6 +28,9 @@
     <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\DeltaTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\Coding\C++\Libraries\CPhysics\src\Perlin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\Coding\C++\Libraries\CPhysics\CMakeLists.txt" />

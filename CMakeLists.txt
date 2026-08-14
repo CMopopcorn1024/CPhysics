@@ -16,6 +16,7 @@ add_library(CPhysics STATIC
     src/Segment.cpp
     src/Vector2.cpp
     src/DeltaTime.cpp
+    src/Perlin.cpp
 )
 
 target_include_directories(CPhysics PUBLIC
